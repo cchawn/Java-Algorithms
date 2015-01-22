@@ -18,6 +18,41 @@ public class BinarySearch {
 		}
 	}//end generateArray
 	
+	private void swapValues(int indexOne, int indexTwo){
+		int temp = myArray[indexOne];
+		myArray[indexOne] = myArray[indexTwo];
+		myArray[indexTwo] = temp;
+	}//end swapValues
+	
+	public void quickSort(int left, int right) {
+		if (right - left <= 0){
+			return;
+		}else{
+			int pivot = myArray[right];
+			int pivotIndex = partitionArray(left, right, pivot);
+			quickSort(left, pivotIndex - 1);
+			quickSort(pivotIndex + 1, right);
+		}
+	}// end partitionArray
+	
+	public int partitionArray(int left, int right, int pivot) {
+		int leftPointer = left - 1;
+		int rightPointer = right;
+		while (true) {
+			while (myArray[++leftPointer] < pivot)
+				;
+			while (rightPointer > 0 && myArray[--rightPointer] > pivot)
+				;
+			if (leftPointer >= rightPointer) {
+				break;
+			} else {
+				swapValues(leftPointer, rightPointer);
+			}
+		}
+		swapValues(leftPointer, right);
+		return leftPointer;
+	}// end paritionArray
+	
 	public void search(int value){
 		startTime = System.currentTimeMillis();
 		
