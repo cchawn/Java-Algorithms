@@ -1,5 +1,6 @@
 /*
  * Binary Search is in O(log(n))
+ * Uses Quick Sort --> O(n log(n))
  */
 public class BinarySearch {
 	private int[] myArray;
@@ -78,6 +79,10 @@ public class BinarySearch {
 	}// end search
 	
 	public static void main(String args[]){
+		BinarySearch test1 = new BinarySearch(400);
 		
+		test1.generateArray();
+		test1.quickSort(0, test1.arraySize - 1);
+		test1.search(10);
 	}// end main
 }
