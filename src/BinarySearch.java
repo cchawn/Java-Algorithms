@@ -34,7 +34,7 @@ public class BinarySearch {
 			quickSort(left, pivotIndex - 1);
 			quickSort(pivotIndex + 1, right);
 		}
-	}// end partitionArray
+	}// end quickSort
 	
 	public int partitionArray(int left, int right, int pivot) {
 		int leftPointer = left - 1;
